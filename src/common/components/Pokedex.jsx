@@ -2,6 +2,7 @@ import React, {useState} from 'react'
 import List from '../layouts/List'
 import ListItem from '../layouts/ListItem'
 import { usePageContext } from '../../context/PaginatorContext'
+import Pokemon from './Pokemon'
 
 export default function Pokedex(props) {
     const {pokemons, isLoading, currentPage, previousPage, nextPage} = usePageContext();
@@ -23,6 +24,9 @@ export default function Pokedex(props) {
                 ))}
             </List>
 
+            <Pokemon
+                name={currentPokemon}
+            />
             <button onClick={previousPage}>previous page</button>
             <h2>{currentPage+1}</h2>
             <button onClick={nextPage}>next page</button>
