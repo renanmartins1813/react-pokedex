@@ -1,4 +1,4 @@
-import { useState, useEffect, createContext, useContext } from "react";
+import { useState, createContext, useContext } from "react";
 import useFetch from '../hooks/useFetch';
 import { PK_LIST_URL } from "../utils/constants";
 
@@ -10,10 +10,6 @@ const PageContext = createContext({
 export function PageContextProvider({children}){
     const [currentPage, setCurrentPage] = useState(0);
     const {data: pokemons, isLoading} = useFetch(PK_LIST_URL(currentPage*15));
-
-    useEffect(()=>{
-        console.log(pokemons);
-    },[pokemons])
 
     function previousPage(){
         if(currentPage > 0) setCurrentPage(currentPage-1);
