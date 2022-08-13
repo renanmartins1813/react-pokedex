@@ -9,7 +9,7 @@ export default function useFetch(url){
         request(url).then( res => {
             setData(res)
         })
-    }, [])
+    }, [url])
 
     return {
         data,
