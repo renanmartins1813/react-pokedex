@@ -24,10 +24,13 @@ export default function Pokemon({name}) {
             {isLoading ? 'loading' : (
                 <>
                     <h1>{pokemon.name}</h1>
+                    <p>{pokemon.types[0].type.name} {pokemon.types[1]?.type.name}</p>
                     <img src={pokemon.sprites.other['official-artwork'].front_default} alt={`Pokemon ${pokemon.name}'s Official Artwork`} onClick={handleEasterEgg} />
                     <p>{pokemon.stats[0].stat.name} {pokemon.stats[0].base_stat}</p>
                     <p>{pokemon.stats[1].stat.name} {pokemon.stats[1].base_stat}</p>
                     <p>{pokemon.stats[2].stat.name} {pokemon.stats[2].base_stat}</p>
+                    <p>{pokemon.stats[3].stat.name} {pokemon.stats[3].base_stat}</p>
+                    <p>{pokemon.stats[4].stat.name} {pokemon.stats[4].base_stat}</p>
                     <p>{pokemon.stats[5].stat.name} {pokemon.stats[5].base_stat}</p>
                 </>
             )}
