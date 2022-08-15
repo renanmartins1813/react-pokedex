@@ -2,21 +2,28 @@ import { useState, createContext, useContext } from "react";
 import useFetch from '../hooks/useFetch';
 import { PK_LIST_URL } from "../utils/constants";
 
-
 const PageContext = createContext({
     currentPage: 0
 })
 
 export function PageContextProvider({children}){
-    const [currentPage, setCurrentPage] = useState(0);
-    const {data: pokemons, isLoading} = useFetch(PK_LIST_URL(currentPage*15));
+    const [currentPage, setCurrentPage] = useState(58);
+    const {data: pokemons, isLoading} = useFetch(PK_LIST_URL(handleOffsetAndLimit(currentPage)));
+
+    function handleOffsetAndLimit(currentPage){
+        const offset = currentPage * 15;
+        if(offset >= 885) return {offset: 885, limit: 13};
+    
+        return {offset,
+                limit: 15};
+    }
 
     function previousPage(){
         if(currentPage > 0) setCurrentPage(currentPage-1);
     }
 
     function nextPage(){
-        if(currentPage <= 1080/15) setCurrentPage(currentPage+1);
+        if(currentPage < 59) setCurrentPage(currentPage+1);
     }
 
     const context = {
