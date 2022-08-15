@@ -7,7 +7,7 @@ const PageContext = createContext({
 })
 
 export function PageContextProvider({children}){
-    const [currentPage, setCurrentPage] = useState(58);
+    const [currentPage, setCurrentPage] = useState(0);
     const {data: pokemons, isLoading} = useFetch(PK_LIST_URL(handleOffsetAndLimit(currentPage)));
 
     function handleOffsetAndLimit(currentPage){
