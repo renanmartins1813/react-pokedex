@@ -19,6 +19,7 @@ export default function Pokedex(props) {
                     <ListItem 
                         handleClick={handlePokemon}
                         name={pokemon.name}
+                        url={pokemon.url}
                         key={pokemon.name}
                     />
                 ))}
