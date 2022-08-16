@@ -6,6 +6,7 @@ export default function useFetch(url){
     const isLoading = data ? false : true;
 
     useEffect(()=>{
+        setData(null);
         request(url).then( res => {
             setData(res)
         })
