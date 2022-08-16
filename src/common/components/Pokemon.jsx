@@ -2,6 +2,7 @@ import React, {useEffect, useState} from 'react'
 import useFetch from '../../hooks/useFetch'
 import { SINGLE_PK_URL } from '../../utils/constants'
 import handleName from '../../utils/handleName';
+import handleID from '../../utils/handleID';
 
 export default function Pokemon({name}) {
     const {data: pokemon, isLoading} = useFetch(SINGLE_PK_URL(name));
@@ -24,6 +25,7 @@ export default function Pokemon({name}) {
         <>
             {isLoading ? 'loading' : (
                 <>
+                    <h1>{handleID(pokemon.id)}</h1>
                     <h1>{handleName(pokemon.name)}</h1>
                     <p>{handleName(pokemon.types[0].type.name)} {handleName(pokemon.types[1]?.type.name)}</p>
                     <img src={pokemon.sprites.other['official-artwork'].front_default} alt={`Pokemon ${pokemon.name}'s Official Artwork`} onClick={handleEasterEgg} />
