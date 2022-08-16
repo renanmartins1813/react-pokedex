@@ -3,6 +3,7 @@ import List from '../layouts/List'
 import ListItem from '../layouts/ListItem'
 import { usePageContext } from '../../context/PaginatorContext'
 import Pokemon from './Pokemon'
+import Load from '../../assets/img/load.png'
 import LeftArrow from '../../assets/svg/left-arrow.svg'
 import RightArrow from '../../assets/svg/right-arrow.svg'
 
@@ -26,7 +27,10 @@ export default function Pokedex(props) {
                     </div>
                 </header>
                 <List>
-                    {isLoading ? 'loading' : pokemons.results.map((pokemon) => (
+                    {isLoading ? 
+                        <div className='load'><img src={Load} alt="spinning pokeball" /></div>
+                        : 
+                        pokemons.results.map((pokemon) => (
                         <ListItem
                             handleClick={handlePokemon}
                             name={pokemon.name}
