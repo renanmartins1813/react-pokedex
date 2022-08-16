@@ -2,7 +2,7 @@ import React from 'react'
 
 export default function List({children}) {
     return (
-        <ul>
+        <ul className='pokedex__list'>
             {children}
         </ul>
         )
