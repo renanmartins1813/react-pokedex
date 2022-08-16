@@ -22,11 +22,11 @@ export default function Pokemon({name}) {
     }, [pokemon])
 
     return (
-        <>
+        <section>
             {isLoading ? 'loading' : (
                 <>
-                    <h1>{handleID(pokemon.id)}</h1>
                     <h1>{handleName(pokemon.name)}</h1>
+                    <h1>{handleID(pokemon.id)}</h1>
                     <p>{handleName(pokemon.types[0].type.name)} {handleName(pokemon.types[1]?.type.name)}</p>
                     <img src={pokemon.sprites.other['official-artwork'].front_default} alt={`Pokemon ${pokemon.name}'s Official Artwork`} onClick={handleEasterEgg} />
                     <p>HP {pokemon.stats[0].base_stat}</p>
@@ -37,6 +37,6 @@ export default function Pokemon({name}) {
                     <p>Speed {pokemon.stats[5].base_stat}</p>
                 </>
             )}
-        </>
+        </section>
     )
 }
