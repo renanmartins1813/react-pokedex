@@ -104,7 +104,7 @@ export default function Pokemon({ name }) {
                                 <div className="pokemon__stat_bar_overlay" style={{width:`${pokemon.stats[0].base_stat/2}%`, backgroundColor: statColor[pokemon.stats[0].stat.name]}}>
                                 </div>
                             </div>
-                            <div className="pokemon__stat_number">{pokemon.stats[0].base_stat} / 200</div>
+                            <div className="pokemon__stat_number">{pokemon.stats[0].base_stat}/200</div>
                         </div>
 
                         <div className='pokemon__stat_name'>
@@ -115,7 +115,7 @@ export default function Pokemon({ name }) {
                                 <div className="pokemon__stat_bar_overlay" style={{width:`${pokemon.stats[1].base_stat/2}%`, backgroundColor: statColor[pokemon.stats[1].stat.name]}}>
                                 </div>
                             </div>
-                            <div className="pokemon__stat_number">{pokemon.stats[1].base_stat} / 200</div>
+                            <div className="pokemon__stat_number">{pokemon.stats[1].base_stat}/200</div>
                         </div>
 
                         <div className='pokemon__stat_name'>
@@ -124,7 +124,7 @@ export default function Pokemon({ name }) {
                                 <div className="pokemon__stat_bar_overlay" style={{width:`${pokemon.stats[2].base_stat/2}%`, backgroundColor: statColor[pokemon.stats[2].stat.name]}}>
                                 </div>
                             </div>
-                            <div className="pokemon__stat_number">{pokemon.stats[2].base_stat} / 200</div>
+                            <div className="pokemon__stat_number">{pokemon.stats[2].base_stat}/200</div>
                         </div>
 
                         <div className='pokemon__stat_name'>
@@ -133,7 +133,7 @@ export default function Pokemon({ name }) {
                                 <div className="pokemon__stat_bar_overlay" style={{width:`${pokemon.stats[3].base_stat/2}%`, backgroundColor: statColor[pokemon.stats[3].stat.name]}}>
                                 </div>
                             </div>
-                            <div className="pokemon__stat_number">{pokemon.stats[3].base_stat} / 200</div>
+                            <div className="pokemon__stat_number">{pokemon.stats[3].base_stat}/200</div>
                         </div>
 
                         <div className='pokemon__stat_name'>
@@ -142,7 +142,7 @@ export default function Pokemon({ name }) {
                                 <div className="pokemon__stat_bar_overlay" style={{width:`${pokemon.stats[4].base_stat/2}%`, backgroundColor: statColor[pokemon.stats[4].stat.name]}}>
                                 </div>
                             </div>
-                            <div className="pokemon__stat_number">{pokemon.stats[4].base_stat} / 200</div>
+                            <div className="pokemon__stat_number">{pokemon.stats[4].base_stat}/200</div>
                         </div>
 
                         <div className='pokemon__stat_name'>
@@ -151,7 +151,7 @@ export default function Pokemon({ name }) {
                                 <div className="pokemon__stat_bar_overlay" style={{width:`${pokemon.stats[5].base_stat/2}%`, backgroundColor: statColor[pokemon.stats[5].stat.name]}}>
                                 </div>
                             </div>
-                            <div className="pokemon__stat_number">{pokemon.stats[5].base_stat} / 200</div>
+                            <div className="pokemon__stat_number">{pokemon.stats[5].base_stat}/200</div>
                         </div>
                     </div>
                 </>
