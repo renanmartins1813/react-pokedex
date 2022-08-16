@@ -20,9 +20,9 @@ export default function Pokedex(props) {
                 <header className='pokedex__header'>
                     <h1 className='pokedex__header_title'>Pokedex</h1>
                     <div className='pokedex__header_menu'>
-                        <img src={LeftArrow} alt="left arrow" onClick={previousPage} />
+                        <img src={LeftArrow} alt="left arrow" className='pokedex__header_menu-arrow' onClick={previousPage} />
                         <h2 className='pokedex__header_menu_page'>{currentPage + 1}</h2>
-                        <img src={RightArrow} alt="right arrow" onClick={nextPage} />
+                        <img src={RightArrow} alt="right arrow" className='pokedex__header_menu-arrow' onClick={nextPage} />
                     </div>
                 </header>
                 <List>

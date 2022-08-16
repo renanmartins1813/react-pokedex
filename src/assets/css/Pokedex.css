@@ -32,6 +32,14 @@
     border-radius: 10px;
 }
 
+.pokedex__header_menu-arrow{
+    cursor: pointer;
+}
+
+.pokedex__header_menu-arrow:hover{
+    transform: scale(1.2);
+}
+
 .pokedex__header_menu_page {
     height: 100%;
     font-size: 24px;

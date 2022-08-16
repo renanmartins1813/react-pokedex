@@ -1,11 +1,16 @@
 .pokedex__list_item {
     width: 361px;
     height: 29px;
+    cursor: pointer;
     display: flex;
     flex-flow: row nowrap;
     justify-content: space-around;
     background: #FF218C;
     box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.13);
+}
+
+.pokedex__list_item:hover{
+    background-color: #FF218CAA;
 }
 
 .pokedex__list_item_hash {
