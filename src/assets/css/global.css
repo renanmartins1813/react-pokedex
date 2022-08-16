@@ -2,6 +2,7 @@
 @import url(./Pokedex.css);
 @import url(./List.css);
 @import url(./ListItem.css);
+@import url(./Pokemon.css);
 
 *,
 *::after,
@@ -25,5 +26,4 @@ body {
     flex-flow: row wrap;
     justify-content: space-evenly;
     align-items: center;
-    /* background-color: blueviolet; */
 }
