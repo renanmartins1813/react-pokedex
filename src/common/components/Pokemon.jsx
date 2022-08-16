@@ -29,12 +29,12 @@ export default function Pokemon({name}) {
                     <h1>{handleName(pokemon.name)}</h1>
                     <p>{handleName(pokemon.types[0].type.name)} {handleName(pokemon.types[1]?.type.name)}</p>
                     <img src={pokemon.sprites.other['official-artwork'].front_default} alt={`Pokemon ${pokemon.name}'s Official Artwork`} onClick={handleEasterEgg} />
-                    <p>{pokemon.stats[0].stat.name} {pokemon.stats[0].base_stat}</p>
-                    <p>{pokemon.stats[1].stat.name} {pokemon.stats[1].base_stat}</p>
-                    <p>{pokemon.stats[2].stat.name} {pokemon.stats[2].base_stat}</p>
-                    <p>{pokemon.stats[3].stat.name} {pokemon.stats[3].base_stat}</p>
-                    <p>{pokemon.stats[4].stat.name} {pokemon.stats[4].base_stat}</p>
-                    <p>{pokemon.stats[5].stat.name} {pokemon.stats[5].base_stat}</p>
+                    <p>HP {pokemon.stats[0].base_stat}</p>
+                    <p>Attack {pokemon.stats[1].base_stat}</p>
+                    <p>Defense {pokemon.stats[2].base_stat}</p>
+                    <p>Sp. Attack {pokemon.stats[3].base_stat}</p>
+                    <p>Sp. Defense {pokemon.stats[4].base_stat}</p>
+                    <p>Speed {pokemon.stats[5].base_stat}</p>
                 </>
             )}
         </>
