@@ -1,0 +1,7 @@
+.pokedex__list {
+    height: 90%;
+    display: flex;
+    flex-flow: column wrap;
+    justify-content: space-evenly;
+    align-items: center;
+}

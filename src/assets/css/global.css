@@ -1,4 +1,7 @@
 @import url(./reset.css);
+@import url(./Pokedex.css);
+@import url(./List.css);
+@import url(./ListItem.css);
 
 *,
 *::after,
@@ -6,6 +9,7 @@
     margin: 0;
     padding: 0;
     box-sizing: border-box;
+    font-family: 'Poppins';
 }
 
 html,
@@ -14,7 +18,12 @@ body {
     height: 100%;
 }
 
-main{
+.app{
+    width: 100vw;
+    height: 100vh;
     display: flex;
     flex-flow: row wrap;
+    justify-content: space-evenly;
+    align-items: center;
+    /* background-color: blueviolet; */
 }
