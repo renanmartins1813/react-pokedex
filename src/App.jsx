@@ -1,8 +1,13 @@
+import Pokedex from "./common/components/Pokedex";
+import { PageContextProvider } from "./context/PaginatorContext";
+
 function App() {
 
   return (
     <div className="App">
-      nothing
+      <PageContextProvider>
+        <Pokedex/>
+      </PageContextProvider>
     </div>
   )
 }
