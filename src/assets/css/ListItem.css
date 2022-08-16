@@ -27,5 +27,6 @@
     display: flex;
     justify-content: right;
     align-items: center;
+    white-space: nowrap;
     color: #FFFFFF;
 }
