@@ -3,6 +3,7 @@
 @import url(./List.css);
 @import url(./ListItem.css);
 @import url(./Pokemon.css);
+@import url(./load.css);
 
 *,
 *::after,
@@ -24,6 +25,6 @@ body {
     height: 100vh;
     display: flex;
     flex-flow: row wrap;
-    justify-content: space-evenly;
+    justify-content: center;
     align-items: center;
 }
