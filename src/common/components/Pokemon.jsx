@@ -51,6 +51,15 @@ export default function Pokemon({ name }) {
         fairy: '#ff9be188'
     }
 
+    const statDisplay = {
+        hp: 'HP',
+        attack: 'Attack',
+        defense: 'Defense',
+        'special-attack': 'Sp. Attack',
+        'special-defense': 'Sp. Defense',
+        speed: 'Speed'
+    }
+
     const statColor = {
         hp: '#FF0000',
         attack: '#F08030',
@@ -60,9 +69,9 @@ export default function Pokemon({ name }) {
         speed: '#F85888'
     }
 
-    function checkSecondType(){
-        if(pokemon.types[1]?.type.name) return true
-        
+    function checkSecondType() {
+        if (pokemon.types[1]?.type.name) return true
+
         return false
     }
 
@@ -76,92 +85,50 @@ export default function Pokemon({ name }) {
     }
 
     useEffect(() => {
-        //console.log(isLoading);
         setEasterEgg(0);
         console.log(pokemon ? true : false)
     }, [pokemon])
 
     return (
-        <section className='pokemon' style={{backgroundColor: pokemon != undefined ? bgColor[pokemon.types[0].type.name] : ''}}  >
-            {isLoading ? 
+        <section className='pokemon' style={{ backgroundColor: pokemon != undefined ? bgColor[pokemon.types[0].type.name] : '' }}  >
+            {isLoading ?
                 <div className='load'><img src={Load} alt="spinning pokeball" /></div>
                 :
                 (
-                <>
-                    <div className='pokemon__header'>
-                        <p className='pokemon__header_id'>#{handleID(pokemon.id)}</p>
-                        <p className='pokemon__header_title'>{handleName(pokemon.name)}</p>
-                        <div className='pokemon__header_type'>
-                            <div className='pokemon__header_type_name' style={{backgroundColor: `${typeColor[pokemon.types[0].type.name]}`}}>{handleName(pokemon.types[0].type.name)}</div>
-                            {checkSecondType() ?
-                                <div className='pokemon__header_type_name' style={{backgroundColor: `${typeColor[pokemon.types[1].type.name]}`, marginLeft: '12px'}}>{handleName(pokemon.types[1].type.name)}</div> :
-                                ''}
-                        </div>
-                    </div>
-
-                    <img src={pokemon.sprites.other['official-artwork'].front_default} alt={`Pokemon ${pokemon.name}'s Official Artwork`} onClick={handleEasterEgg} className='pokemon__img' />
-
-                    <div className="pokemon__stat">
-                        <div className='pokemon__stat_name'>
-                            <div className='pokemon__stat_name_name'>
-                                HP
+                    <>
+                        <div className='pokemon__header'>
+                            <p className='pokemon__header_id'>#{handleID(pokemon.id)}</p>
+                            <p className='pokemon__header_title'>{handleName(pokemon.name)}</p>
+                            <div className='pokemon__header_type'>
+                                <div className='pokemon__header_type_name' style={{ backgroundColor: `${typeColor[pokemon.types[0].type.name]}` }}>{handleName(pokemon.types[0].type.name)}</div>
+                                {checkSecondType() ?
+                                    <div className='pokemon__header_type_name' style={{ backgroundColor: `${typeColor[pokemon.types[1].type.name]}`, marginLeft: '12px' }}>{handleName(pokemon.types[1].type.name)}</div> :
+                                    ''}
                             </div>
-                            <div className="pokemon__stat_bar">
-                                <div className="pokemon__stat_bar_overlay" style={{width:`${pokemon.stats[0].base_stat/2}%`, backgroundColor: statColor[pokemon.stats[0].stat.name]}}>
-                                </div>
-                            </div>
-                            <div className="pokemon__stat_number">{pokemon.stats[0].base_stat}/200</div>
                         </div>
 
-                        <div className='pokemon__stat_name'>
-                            <div className="pokemon__stat_name_name">
-                                Attack
-                            </div>
-                            <div className="pokemon__stat_bar">
-                                <div className="pokemon__stat_bar_overlay" style={{width:`${pokemon.stats[1].base_stat/2}%`, backgroundColor: statColor[pokemon.stats[1].stat.name]}}>
-                                </div>
-                            </div>
-                            <div className="pokemon__stat_number">{pokemon.stats[1].base_stat}/200</div>
-                        </div>
+                        <img src={pokemon.sprites.other['official-artwork'].front_default} alt={`Pokemon ${pokemon.name}'s Official Artwork`} onClick={handleEasterEgg} className='pokemon__img' />
 
-                        <div className='pokemon__stat_name'>
-                            <div className='pokemon__stat_name_name'>Defense</div>
-                            <div className="pokemon__stat_bar">
-                                <div className="pokemon__stat_bar_overlay" style={{width:`${pokemon.stats[2].base_stat/2}%`, backgroundColor: statColor[pokemon.stats[2].stat.name]}}>
-                                </div>
-                            </div>
-                            <div className="pokemon__stat_number">{pokemon.stats[2].base_stat}/200</div>
+                        <div className="pokemon__stat">
+                            {pokemon.stats.map((stat) => {
+                                return (
+                                    <div className='pokemon__stat_name'>
+                                        <div className="pokemon__stat_name_name">
+                                            {statDisplay[stat.stat.name]}
+                                        </div>
+                                        <div className='pokemon__stat_bar'>
+                                            <div className='pokemon__stat_bar_overlay' style={{ width: `${stat.base_stat / 2}%`, backgroundColor: statColor[stat.stat.name] }}>
+                                            </div>
+                                        </div>
+                                        <div className='pokemon__stat_number'>
+                                            {stat.base_stat}/200
+                                        </div>
+                                    </div>
+                                )
+                            })}
                         </div>
-
-                        <div className='pokemon__stat_name'>
-                            <div className='pokemon__stat_name_name'>Sp. Attack</div>
-                            <div className="pokemon__stat_bar">
-                                <div className="pokemon__stat_bar_overlay" style={{width:`${pokemon.stats[3].base_stat/2}%`, backgroundColor: statColor[pokemon.stats[3].stat.name]}}>
-                                </div>
-                            </div>
-                            <div className="pokemon__stat_number">{pokemon.stats[3].base_stat}/200</div>
-                        </div>
-
-                        <div className='pokemon__stat_name'>
-                            <div className='pokemon__stat_name_name'>Sp. Defense</div>
-                            <div className="pokemon__stat_bar">
-                                <div className="pokemon__stat_bar_overlay" style={{width:`${pokemon.stats[4].base_stat/2}%`, backgroundColor: statColor[pokemon.stats[4].stat.name]}}>
-                                </div>
-                            </div>
-                            <div className="pokemon__stat_number">{pokemon.stats[4].base_stat}/200</div>
-                        </div>
-
-                        <div className='pokemon__stat_name'>
-                            <div className='pokemon__stat_name_name'>Speed</div>
-                            <div className="pokemon__stat_bar">
-                                <div className="pokemon__stat_bar_overlay" style={{width:`${pokemon.stats[5].base_stat/2}%`, backgroundColor: statColor[pokemon.stats[5].stat.name]}}>
-                                </div>
-                            </div>
-                            <div className="pokemon__stat_number">{pokemon.stats[5].base_stat}/200</div>
-                        </div>
-                    </div>
-                </>
-            )}
+                    </>
+                )}
         </section>
     )
 }
