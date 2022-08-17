@@ -1,12 +1,15 @@
 import React, { useEffect, useState } from 'react'
 import useFetch from '../../hooks/useFetch'
-import { SINGLE_PK_URL } from '../../utils/constants'
+import { SINGLE_PK_URL, POKE_INFO_URL } from '../../utils/constants'
 import handleName from '../../utils/handleName';
 import handleID from '../../utils/handleID';
+import getInfo from '../../utils/getInfo';
 import Load from '../../assets/img/load.png'
 
 export default function Pokemon({ name }) {
-    const { data: pokemon, isLoading } = useFetch(SINGLE_PK_URL(name));
+    const { data: pokemon, isLoading: isLoadingPoke } = useFetch(SINGLE_PK_URL(name));
+    const {data: info, isLoading: isLoadingInfo} = useFetch(POKE_INFO_URL(name))
+    const [isLoading, setIsLoading] = useState(true);
     const [easterEgg, setEasterEgg] = useState(0);
 
     const typeColor = {
@@ -69,6 +72,12 @@ export default function Pokemon({ name }) {
         speed: '#F85888'
     }
 
+    function handleLoading(){
+        if(isLoadingPoke && isLoadingInfo) return true
+
+        return false
+    }
+
     function checkSecondType() {
         if (pokemon.types[1]?.type.name) return true
 
@@ -85,9 +94,24 @@ export default function Pokemon({ name }) {
     }
 
     useEffect(() => {
+        setIsLoading(true);
+        // console.log(isLoadingPoke);
+        // console.log('poke acima');
+        // console.log(isLoadingInfo);
+        // console.log('info acima');
+        // console.log(isLoading);
+        // console.log('state acima');
+        // if(handleLoading()){
+        //     setIsLoading(false);
+        // }
+        if(isLoadingPoke && isLoadingInfo){
+            setIsLoading(true);
+        }
+        else{
+            setIsLoading(false)
+        }
         setEasterEgg(0);
-        console.log(pokemon ? true : false)
-    }, [pokemon])
+    }, [pokemon, info, isLoadingPoke, isLoadingInfo])
 
     return (
         <section className='pokemon' style={{ backgroundColor: pokemon != undefined ? bgColor[pokemon.types[0].type.name] : '' }}  >
@@ -109,10 +133,14 @@ export default function Pokemon({ name }) {
 
                         <img src={pokemon.sprites.other['official-artwork'].front_default} alt={`Pokemon ${pokemon.name}'s Official Artwork`} onClick={handleEasterEgg} className='pokemon__img' />
 
+                        <div>
+                            {getInfo(info["flavor_text_entries"])}
+                        </div>
+
                         <div className="pokemon__stat">
                             {pokemon.stats.map((stat) => {
                                 return (
-                                    <div className='pokemon__stat_name'>
+                                    <div className='pokemon__stat_name' key={stat.stat.name}>
                                         <div className="pokemon__stat_name_name">
                                             {statDisplay[stat.stat.name]}
                                         </div>

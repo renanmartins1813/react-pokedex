@@ -9,7 +9,7 @@ import RightArrow from '../../assets/svg/right-arrow.svg'
 
 export default function Pokedex(props) {
     const { pokemons, isLoading, currentPage, previousPage, nextPage } = usePageContext();
-    const [currentPokemon, setCurrentPokemon] = useState('bulbasaur');
+    const [currentPokemon, setCurrentPokemon] = useState('regieleki');
 
     function handlePokemon(name) {
         setCurrentPokemon(name)
