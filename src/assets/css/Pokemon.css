@@ -1,6 +1,7 @@
 .pokemon {
     width: 420px;
     height: 625px;
+    position: relative;
     display: flex;
     flex-flow: column nowrap;
     justify-content: space-between;
@@ -16,7 +17,7 @@
     display: flex;
     flex-flow: column nowrap;
     justify-content: space-around;
-    align-items: left;
+    align-items: flex-start;
 }
 
 .pokemon__header_id {
@@ -52,7 +53,7 @@
     width: 280px;
     height: 280px;
     position: absolute;
-    top: 320px;
+    top: 150px;
 }
 
 .pokemon__stat {
